@@ -3,109 +3,76 @@
 //
 
 #include "task_1.h"
+#include "polygon.h"
 
-void    find_min_max(t_data *data, int count)
-{
-    if (!count) {
-        data->limits.min_x = data->line[count].x1;
-        data->limits.max_x = data->line[count].x1;
-        data->limits.min_y = data->line[count].y1;
-        data->limits.max_y = data->line[count].y1;
-    }
-    else {
+using namespace std;
 
-        if (data->line[count].x1 < data->limits.min_x)
-            data->limits.min_x = data->line[count].x1;
-        if (data->line[count].x1 > data->limits.max_x)
-            data->limits.max_x = data->line[count].x1;
-
-        if (data->line[count].y1 < data->limits.min_y)
-            data->limits.min_y = data->line[count].y1;
-        if (data->line[count].y1 > data->limits.max_y)
-            data->limits.max_y = data->line[count].y1;
-    }
-}
+//void    find_min_max(t_data *data, int count)
+//{
+//    if (!count) {
+//        data->limits.min_x = data->line[count].x1;
+//        data->limits.max_x = data->line[count].x1;
+//        data->limits.min_y = data->line[count].y1;
+//        data->limits.max_y = data->line[count].y1;
+//    }
+//    else {
+//
+//        if (data->line[count].x1 < data->limits.min_x)
+//            data->limits.min_x = data->line[count].x1;
+//        if (data->line[count].x1 > data->limits.max_x)
+//            data->limits.max_x = data->line[count].x1;
+//
+//        if (data->line[count].y1 < data->limits.min_y)
+//            data->limits.min_y = data->line[count].y1;
+//        if (data->line[count].y1 > data->limits.max_y)
+//            data->limits.max_y = data->line[count].y1;
+//    }
+//}
 
 void    all_parse2(t_data *data)
 {
     data->lines_number = 9;
     data->points_number = 2;
 
-    data->line = (t_lines *)malloc(sizeof(t_lines) * data->lines_number);
-    data->point = (t_points *)malloc(sizeof(t_points) * data->points_number);
 
-    data->line[0].x1 = -3;
-    data->line[0].y1 = 11; // 1
-    data->line[0].x2 = 4;
-    data->line[0].y2 = 10;
+    data->line.push_back({-3, 11, 4, 10}); //1
+    data->line.push_back({4, 10, 9, 6}); //2
+    data->line.push_back({9, 6, 5, 5}); //3
+    data->line.push_back({5, 5, 11, 3}); //4
+    data->line.push_back({11, 3, 11, -3}); //5
+    data->line.push_back({11, -3, 4, 1}); //6
+    data->line.push_back({4, 1, 2, -6}); //7
+    data->line.push_back({2, -6, -2, 1}); //8
+    data->line.push_back({-2, 1, -3, 11}); //9
 
-    data->line[1].x1 = 4;
-    data->line[1].y1 = 10; // 2
-    data->line[1].x2 = 9;
-    data->line[1].y2 = 6;
 
-    data->line[2].x1 = 9;
-    data->line[2].y1 = 6; // 3
-    data->line[2].x2 = 5;
-    data->line[2].y2 = 5;
-
-    data->line[3].x1 = 5;
-    data->line[3].y1 = 5; // 4
-    data->line[3].x2 = 11;
-    data->line[3].y2 = 3;
-
-    data->line[4].x1 = 11;
-    data->line[4].y1 = 3; // 5
-    data->line[4].x2 = 11;
-    data->line[4].y2 = -3;
-
-    data->line[5].x1 = 11;
-    data->line[5].y1 = -3; // 6
-    data->line[5].x2 = 4;
-    data->line[5].y2 = 1;
-
-    data->line[6].x1 = 4;
-    data->line[6].y1 = 1; // 7
-    data->line[6].x2 = 2;
-    data->line[6].y2 = -6;
-
-    data->line[7].x1 = 2;
-    data->line[7].y1 = -6; // 8
-    data->line[7].x2 = -2;
-    data->line[7].y2 = 1;
-
-    data->line[8].x1 = -2;
-    data->line[8].y1 = 1; // 9
-    data->line[8].x2 = -3;
-    data->line[8].y2 = 11;
-
-    data->limits.max_x = 11;
     data->limits.min_x = -3;
     data->limits.min_y = -6;
+    data->limits.max_x = 11;
     data->limits.max_y = 11;
 
-    data->point[0].x = 5;
-    data->point[0].y = 5;
-
-    data->point[1].x = 100;
-    data->point[1].y = 0;
+    data->point.push_back({.x = 5, .y = 5});
+    data->point.push_back({.x = 100, .y = 0});
 }
 
 void    all_parse(t_data *data)
 {
 
     int count;
+    int x1;
+    int y1;
+    int x2;
+    int y2;
 
     count = -1;
     cin >> data->lines_number >> data->points_number;
 
-    data->line = (t_lines *)malloc(sizeof(t_lines) * data->lines_number);
-    data->point = (t_points *)malloc(sizeof(t_points) * data->points_number);
-
     while (count++ != (data->lines_number - 1)) {
-        cin >> data->line[count].x1 >> data->line[count].y1;
-        cin >> data->line[count].x2 >> data->line[count].y2;
-        find_min_max(data, count);
+        cin >> x1 >> y1 >> x2 >> y2;
+        data->line.push_back({.x1 = x1, .y1 = y1, .x2 = x2, .y2 = y2});
+//        cin >> data->line[count].x1 >> data->line[count].y1;
+//        cin >> data->line[count].x2 >> data->line[count].y2;
+//        find_min_max(data, count);
     }
     count = -1;
 

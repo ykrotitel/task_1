@@ -4,7 +4,7 @@
 
 #include "task_1.h"
 
-void    init_params(t_data *data, t_bresenhem *bres, t_lines line)
+void    init_params(t_data *data, t_bresenham *bres, t_lines line)
 {
     bres->d_x = abs(line.x2 - line.x1);
     bres->d_y = abs(line.y2 - line.y1);
@@ -15,8 +15,8 @@ void    init_params(t_data *data, t_bresenhem *bres, t_lines line)
 void    bresenham_algo(t_data *data)
 {
     int         count;
-    t_lines line;
-    t_bresenhem bres;
+    t_lines     line;
+    t_bresenham bres;
 
     count = -1;
     while (count++ != (data->lines_number - 1)) {

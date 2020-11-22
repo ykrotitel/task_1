@@ -3,13 +3,15 @@
 //
 
 #include "task_1.h"
+#include "polygon.h"
 
-static void    local_init_left(t_data *data, t_bresenhem *bres, t_lines line) {
+
+static void    local_init_left(t_data *data, t_bresenham *bres, t_lines line) {
     bres->d_err = bres->d_y + 1;
     bres->dir_y = (line.y2 - line.y1) > 0 ? 1 : -1;
 }
 
-void    left(t_data *data, t_bresenhem bres, t_lines  line) {
+void    left(t_data *data, t_bresenham bres, t_lines  line) {
     int x1_tmp;
     int y1_tmp;
 
@@ -19,7 +21,7 @@ void    left(t_data *data, t_bresenhem bres, t_lines  line) {
     y1_tmp = line.y1;
 
     while (x1_tmp != line.x2) {
-        set_flag(x1_tmp, y1_tmp, INSIDE);
+        area.set_flag(x1_tmp, y1_tmp, INSIDE);
         bres.err += bres.d_err;
         if (bres.err >= (bres.d_x + 1)) {
             y1_tmp += bres.dir_y;
@@ -27,16 +29,16 @@ void    left(t_data *data, t_bresenhem bres, t_lines  line) {
         }
         x1_tmp--;
     }
-    set_flag(line.x2, line.y2, END);
+    area.set_flag(line.x2, line.y2, END);
 
 }
 
-static void local_init_right(t_data *data, t_bresenhem *bres, t_lines  line) {
+static void local_init_right(t_data *data, t_bresenham *bres, t_lines  line) {
     bres->d_err = bres->d_y + 1;
     bres->dir_y = (line.y2 - line.y1) > 0 ? 1 : -1;
 }
 
-void    right(t_data *data, t_bresenhem bres, t_lines  line) {
+void    right(t_data *data, t_bresenham bres, t_lines  line) {
     int x1_tmp;
     int y1_tmp;
 
@@ -46,7 +48,7 @@ void    right(t_data *data, t_bresenhem bres, t_lines  line) {
     y1_tmp = line.y1;
 
     while (x1_tmp != line.x2) {
-        set_flag(x1_tmp, y1_tmp, INSIDE);
+        area.set_flag(x1_tmp, y1_tmp, INSIDE);
         bres.err += bres.d_err;
         if (bres.err >= (bres.d_x + 1)) {
             y1_tmp += bres.dir_y;
@@ -54,15 +56,15 @@ void    right(t_data *data, t_bresenhem bres, t_lines  line) {
         }
         x1_tmp++;
     }
-    set_flag(line.x2, line.y2, END);
+    area.set_flag(line.x2, line.y2, END);
 }
 
-static void local_init_up(t_data *data, t_bresenhem *bres, t_lines line) {
+static void local_init_up(t_data *data, t_bresenham *bres, t_lines line) {
     bres->d_err = bres->d_x + 1;
     bres->dir_x = (line.x2 - line.x1) > 0 ? 1 : -1;
 }
 
-void    up(t_data *data, t_bresenhem bres, t_lines line) {
+void    up(t_data *data, t_bresenham bres, t_lines line) {
     int x1_tmp;
     int y1_tmp;
 
@@ -72,7 +74,7 @@ void    up(t_data *data, t_bresenhem bres, t_lines line) {
     y1_tmp = line.y1;
 
     while (y1_tmp != line.y2) {
-        set_flag(x1_tmp, y1_tmp, INSIDE);
+        area.set_flag(x1_tmp, y1_tmp, INSIDE);
 
         bres.err += bres.d_err;
         if (bres.err >= (bres.d_y + 1)) {
@@ -81,15 +83,15 @@ void    up(t_data *data, t_bresenhem bres, t_lines line) {
         }
         y1_tmp--;
     }
-    set_flag(line.x2, line.y2, END);
+    area.set_flag(line.x2, line.y2, END);
 }
 
-static void     local_init_down(t_data *data, t_bresenhem *bres, t_lines line) {
+static void     local_init_down(t_data *data, t_bresenham *bres, t_lines line) {
     bres->d_err = bres->d_x + 1;
     bres->dir_x = (line.x2 - line.x1) > 0 ? 1 : -1;
 }
 
-void    down(t_data *data, t_bresenhem bres, t_lines line) {
+void    down(t_data *data, t_bresenham bres, t_lines line) {
     int x1_tmp;
     int y1_tmp;
 
@@ -99,7 +101,7 @@ void    down(t_data *data, t_bresenhem bres, t_lines line) {
     y1_tmp = line.y1;
 
     while (y1_tmp != line.y2) {
-        set_flag(x1_tmp, y1_tmp, INSIDE);
+        area.set_flag(x1_tmp, y1_tmp, INSIDE);
         bres.err += bres.d_err;
         if (bres.err >= (bres.d_y + 1)) {
             x1_tmp += bres.dir_x;
@@ -107,5 +109,5 @@ void    down(t_data *data, t_bresenhem bres, t_lines line) {
         }
         y1_tmp++;
     }
-    set_flag(line.x2, line.y2, END);
+    area.set_flag(line.x2, line.y2, END);
 }

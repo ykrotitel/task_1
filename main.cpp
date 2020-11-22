@@ -1,13 +1,16 @@
+
 #include "task_1.h"
+#include "polygon.h"
+
+using namespace std;
 
 int main() {
     t_data data;
 
     all_parse2(&data);
-//    all_parse(&data);
-    make_polygon(&data);
+    area.make_polygon(&data);
     bresenham_algo(&data);
-    fill_polygon_out();
-    solution(&data);
-    polygon_output();
+    area.fill_polygon_out();
+    solution(&data, &area);
+    area.polygon_output();
 }
