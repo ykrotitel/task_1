@@ -7,4 +7,7 @@ int main() {
 //    all_parse(&data);
     make_polygon(&data);
     bresenham_algo(&data);
+    fill_polygon_out();
+    solution(&data);
+    polygon_output();
 }

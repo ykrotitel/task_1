@@ -28,36 +28,61 @@ void    find_min_max(t_data *data, int count)
 
 void    all_parse2(t_data *data)
 {
-    data->lines_number = 4;
+    data->lines_number = 9;
     data->points_number = 2;
 
     data->line = (t_lines *)malloc(sizeof(t_lines) * data->lines_number);
     data->point = (t_points *)malloc(sizeof(t_points) * data->points_number);
 
-    data->line[0].x1 = 0;
-    data->line[0].y1 = 10; // 1
-    data->line[0].x2 = 10;
-    data->line[0].y2 = 7;
+    data->line[0].x1 = -3;
+    data->line[0].y1 = 11; // 1
+    data->line[0].x2 = 4;
+    data->line[0].y2 = 10;
 
-    data->line[1].x1 = 10;
-    data->line[1].y1 = 7; // 2
-    data->line[1].x2 = 10;
-    data->line[1].y2 = 0;
+    data->line[1].x1 = 4;
+    data->line[1].y1 = 10; // 2
+    data->line[1].x2 = 9;
+    data->line[1].y2 = 6;
 
-    data->line[2].x1 = 10;
-    data->line[2].y1 = 0; // 3
-    data->line[2].x2 = 0;
-    data->line[2].y2 = 4;
+    data->line[2].x1 = 9;
+    data->line[2].y1 = 6; // 3
+    data->line[2].x2 = 5;
+    data->line[2].y2 = 5;
 
-    data->line[3].x1 = 0;
-    data->line[3].y1 = 4; // 4
-    data->line[3].x2 = 0;
-    data->line[3].y2 = 10;
+    data->line[3].x1 = 5;
+    data->line[3].y1 = 5; // 4
+    data->line[3].x2 = 11;
+    data->line[3].y2 = 3;
 
-    data->limits.max_x = 10;
-    data->limits.min_x = 0;
-    data->limits.min_y = 0;
-    data->limits.max_y = 10;
+    data->line[4].x1 = 11;
+    data->line[4].y1 = 3; // 5
+    data->line[4].x2 = 11;
+    data->line[4].y2 = -3;
+
+    data->line[5].x1 = 11;
+    data->line[5].y1 = -3; // 6
+    data->line[5].x2 = 4;
+    data->line[5].y2 = 1;
+
+    data->line[6].x1 = 4;
+    data->line[6].y1 = 1; // 7
+    data->line[6].x2 = 2;
+    data->line[6].y2 = -6;
+
+    data->line[7].x1 = 2;
+    data->line[7].y1 = -6; // 8
+    data->line[7].x2 = -2;
+    data->line[7].y2 = 1;
+
+    data->line[8].x1 = -2;
+    data->line[8].y1 = 1; // 9
+    data->line[8].x2 = -3;
+    data->line[8].y2 = 11;
+
+    data->limits.max_x = 11;
+    data->limits.min_x = -3;
+    data->limits.min_y = -6;
+    data->limits.max_y = 11;
 
     data->point[0].x = 5;
     data->point[0].y = 5;

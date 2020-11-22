@@ -31,12 +31,10 @@ void    bresenham_algo(t_data *data)
             right(data, bres, line);
         }
         else if (line.y1 >= line.y2 && bres.d_y >= bres.d_x) {
-            //up (data);
+            up (data, bres, line);
         }
         else if (line.y2 >= line.y1 && bres.d_y >= bres.d_x) {
-            //down(data);
+            down(data, bres, line);
         }
-        polygon_output(data->polygon, data->size_x, data->size_y);
-        cout << endl;
     }
 }
