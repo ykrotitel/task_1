@@ -12,7 +12,7 @@ void    init_params(t_data *data, t_bresenham *bres, t_lines line)
     bres->d_err = 0;
 }
 
-void    bresenham_algo(t_data *data)
+void    bresenham_algo(t_data *data, Arena &area)
 {
     int         count;
     t_lines     line;
@@ -25,16 +25,16 @@ void    bresenham_algo(t_data *data)
         init_params(data, &bres, line);
 
         if (line.x1 >= line.x2 && bres.d_x >= bres.d_y) {
-            left(data, bres, line);
+            left(data, bres, line, area);
         }
         else if (line.x2 >= line.x1 && bres.d_x >= bres.d_y) {
-            right(data, bres, line);
+            right(data, bres, line, area);
         }
         else if (line.y1 >= line.y2 && bres.d_y >= bres.d_x) {
-            up (data, bres, line);
+            up (data, bres, line, area);
         }
         else if (line.y2 >= line.y1 && bres.d_y >= bres.d_x) {
-            down(data, bres, line);
+            down(data, bres, line, area);
         }
     }
 }

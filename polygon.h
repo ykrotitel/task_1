@@ -2,10 +2,11 @@
 // Created by Alester Carletta on 11/22/20.
 //
 
-#ifndef UNTITLED_POLYGON_H
-#define UNTITLED_POLYGON_H
+#ifndef POLYGON_H
+#define POLYGON_H
 
 #include "task_1.h"
+#include <iostream>
 
 #define RED "\033[7;31m"
 #define WHITE "\033[7;30m"
@@ -20,65 +21,15 @@ enum Zone {
     ANSWER = 7,
 };
 
-typedef struct s_lines
-{
-    int         x1;
-    int         y1;
-    int         x2;
-    int         y2;
-}               t_lines;
-
-typedef struct s_points
-{
-    int         x;
-    int         y;
-    int         flag;
-}               t_points;
-
-typedef struct  s_max
-{
-    int         min_x;
-    int         max_x;
-    int         min_y;
-    int         max_y;
-}               t_max;
-
-typedef struct  s_bresenham
-{
-    int         d_x;
-    int         d_y;
-    int         err;
-    int         d_err;
-    int         dir_x;
-    int         dir_y;
-}               t_bresenham;
-
-using Polygon   = std::vector <std::vector<int> >;
-using Lines     = std::vector <t_lines>;
-using Points    = std::vector <t_points>;
-
-typedef struct s_data
-{
-    t_max       limits;
-    Lines       line;
-    Points      point;
-    Polygon     polygon;
-    int         lines_number;
-    int         points_number;
-    int         size_x;
-    int         size_y;
-}              t_data;
-
-using namespace std;
 
 class Arena {
-
 private:
-    int         shift_x;
-    int         shift_y;
-    int         size_x;
-    int         size_y;
-    vector<vector<int> > polygon;
+    int shift_x;
+    int shift_y;
+    int size_x;
+    int size_y;
+    std::vector<std::vector<int> >  polygon;
+
 
 public:
     void    set_flag(int x, int y, int flag) {
@@ -139,20 +90,18 @@ public:
             i = -1;
             while (++i != size_x) {
                 if (polygon[j][i] == INSIDE || polygon[j][i] == END)
-                    cout << RED;
+                    std::cout << RED;
                 if (polygon[j][i] == OUTSIDE)
-                    cout << WHITE;
+                    std::cout << WHITE;
                 if (polygon[j][i] == ANSWER)
-                    cout << GREEN;
-                cout << "   " << BLACK;
+                    std::cout << GREEN;
+                std::cout << "   " << BLACK;
             }
-            cout << endl;
+            std::cout << std::endl;
         }
     }
 
-public:
-    void    make_polygon(t_data *data)
-    {
+    void    make_polygon(t_data *data) {
         int count;
         int i;
 
@@ -168,7 +117,7 @@ public:
         data->size_y = size_y;
         polygon = data->polygon;
         while (count++ != size_y) {
-            polygon.push_back(vector <int>());
+            polygon.push_back(std::vector <int>());
             while (++i != size_x) {
                 polygon[count].push_back(0);
             }
@@ -177,7 +126,6 @@ public:
     }
 };
 
-Arena area;
-
 // TODO область видимости глобального экземляра класса
+
 #endif

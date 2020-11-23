@@ -1,16 +1,16 @@
 
-#include "task_1.h"
 #include "polygon.h"
 
 using namespace std;
 
 int main() {
     t_data data;
+    Arena area;
 
     all_parse2(&data);
     area.make_polygon(&data);
-    bresenham_algo(&data);
+    bresenham_algo(&data, area);
     area.fill_polygon_out();
-    solution(&data, &area);
-    area.polygon_output();
+    solution(&data, area);
+    area.polygon_output(); //If you wanna to see the visual solution, just uncomment the line ;)
 }

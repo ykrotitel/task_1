@@ -9,7 +9,7 @@
 int x;
 int y;
 
-void    solution(t_data *data, Arena *area) {
+void    solution(t_data *data, Arena &area) {
     int count;
     int answer;
 
@@ -18,9 +18,9 @@ void    solution(t_data *data, Arena *area) {
     while (++count != data->points_number) {
         x = data->point[count].x;
         y = data->point[count].y;
-        if (area->is_inside(x, y)) {
+        if (area.is_inside(x, y)) {
             answer++;
-            area->set_flag(x, y, ANSWER);
+            area.set_flag(x, y, ANSWER);
         }
     }
     std::cout << answer << std::endl;

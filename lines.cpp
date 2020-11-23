@@ -2,7 +2,6 @@
 // Created by Alester Carletta on 11/21/20.
 //
 
-#include "task_1.h"
 #include "polygon.h"
 
 
@@ -11,7 +10,7 @@ static void    local_init_left(t_data *data, t_bresenham *bres, t_lines line) {
     bres->dir_y = (line.y2 - line.y1) > 0 ? 1 : -1;
 }
 
-void    left(t_data *data, t_bresenham bres, t_lines  line) {
+void    left(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -38,7 +37,7 @@ static void local_init_right(t_data *data, t_bresenham *bres, t_lines  line) {
     bres->dir_y = (line.y2 - line.y1) > 0 ? 1 : -1;
 }
 
-void    right(t_data *data, t_bresenham bres, t_lines  line) {
+void    right(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -64,7 +63,7 @@ static void local_init_up(t_data *data, t_bresenham *bres, t_lines line) {
     bres->dir_x = (line.x2 - line.x1) > 0 ? 1 : -1;
 }
 
-void    up(t_data *data, t_bresenham bres, t_lines line) {
+void    up(t_data *data, t_bresenham bres, t_lines line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -91,7 +90,7 @@ static void     local_init_down(t_data *data, t_bresenham *bres, t_lines line) {
     bres->dir_x = (line.x2 - line.x1) > 0 ? 1 : -1;
 }
 
-void    down(t_data *data, t_bresenham bres, t_lines line) {
+void    down(t_data *data, t_bresenham bres, t_lines line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 

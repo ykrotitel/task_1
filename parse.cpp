@@ -3,7 +3,6 @@
 //
 
 #include "task_1.h"
-#include "polygon.h"
 
 using namespace std;
 
