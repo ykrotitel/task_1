@@ -1,8 +1,6 @@
 
 #include "polygon.h"
 
-using namespace std;
-
 int main() {
     t_data data;
     Arena area;
@@ -12,5 +10,5 @@ int main() {
     bresenham_algo(&data, area);
     area.fill_polygon_out();
     solution(&data, area);
-    area.polygon_output(); //If you wanna to see the visual solution, just uncomment the line ;)
+//    area.polygon_output(); //If you wanna to see the visual solution, just uncomment the line ;)
 }

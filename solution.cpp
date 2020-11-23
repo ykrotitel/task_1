@@ -2,9 +2,7 @@
 // Created by Alester Carletta on 11/22/20.
 //
 
-#include "task_1.h"
 #include "polygon.h"
-
 
 int x;
 int y;

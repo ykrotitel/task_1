@@ -3,15 +3,23 @@
 //
 #pragma once
 
-
-#ifndef TASK_1_H
-#define TASK_1_H
-
 #include <cmath>
 #include <vector>
 #include <libc.h>
-
 #include <iostream>
+
+#define RED "\033[7;31m"
+#define WHITE "\033[7;30m"
+#define GREEN "\033[7;32m"
+#define BLACK "\033[0;30m"
+
+enum Zone {
+    DEFAULT = 0,
+    INSIDE = 1,
+    END = 2,
+    OUTSIDE = 3,
+    ANSWER = 7,
+};
 
 typedef struct s_lines
 {
@@ -75,16 +83,26 @@ void    all_parse2(t_data *data);
  * bresenham.cpp
  */
 void    bresenham_algo(t_data *data, Arena &area);
+
+
 /*
  * lines.cpp
  */
 void    left(t_data *data, t_bresenham bres, t_lines line, Arena &area);
 void    right(t_data *data, t_bresenham bres, t_lines  line, Arena &area);
 void    up(t_data *data, t_bresenham bres, t_lines line, Arena &area);
-
-
 void    down(t_data *data, t_bresenham bres, t_lines line, Arena &area);
 
+/*
+ * solution.cpp
+ */
 void    solution(t_data *data, Arena &area);
 
-#endif
+/*
+ * init.cpp
+ */
+void     local_init_down(t_data *data, t_bresenham *bres, t_lines line);
+void    local_init_up(t_data *data, t_bresenham *bres, t_lines line);
+void     local_init_right(t_data *data, t_bresenham *bres, t_lines  line);
+void    local_init_left(t_data *data, t_bresenham *bres, t_lines line);
+void    init_params(t_data *data, t_bresenham *bres, t_lines line);

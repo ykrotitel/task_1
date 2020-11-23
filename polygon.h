@@ -1,26 +1,9 @@
 //
 // Created by Alester Carletta on 11/22/20.
 //
-
-#ifndef POLYGON_H
-#define POLYGON_H
+#pragma once
 
 #include "task_1.h"
-#include <iostream>
-
-#define RED "\033[7;31m"
-#define WHITE "\033[7;30m"
-#define GREEN "\033[7;32m"
-#define BLACK "\033[0;30m"
-
-enum Zone {
-    DEFAULT = 0,
-    INSIDE = 1,
-    END = 2,
-    OUTSIDE = 3,
-    ANSWER = 7,
-};
-
 
 class Arena {
 private:
@@ -127,5 +110,3 @@ public:
 };
 
 // TODO область видимости глобального экземляра класса
-
-#endif
