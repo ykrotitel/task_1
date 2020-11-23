@@ -5,7 +5,7 @@ int main() {
     t_data data;
     Arena area;
 
-    all_parse2(&data);
+    all_parse(&data);
     area.make_polygon(&data);
     bresenham_algo(&data, area);
     area.fill_polygon_out();
