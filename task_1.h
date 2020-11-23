@@ -70,20 +70,16 @@ typedef struct s_data
 }               t_data;
 
 class Arena;
+
 /*
  * parse.cpp
  */
 void    all_parse(t_data *data);
 
-
-void    all_parse2(t_data *data);
-
-
 /*
  * bresenham.cpp
  */
 void    bresenham_algo(t_data *data, Arena &area);
-
 
 /*
  * lines.cpp
