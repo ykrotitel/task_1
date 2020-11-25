@@ -4,7 +4,7 @@
 
 #include "polygon.h"
 
-void    left(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
+void    left(s_data *data, s_bresenham bres, s_lines  line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -26,7 +26,7 @@ void    left(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
 
 }
 
-void    right(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
+void    right(s_data *data, s_bresenham bres, s_lines  line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -47,7 +47,7 @@ void    right(t_data *data, t_bresenham bres, t_lines  line, Arena &area) {
     area.set_flag(line.x2, line.y2, END);
 }
 
-void    up(t_data *data, t_bresenham bres, t_lines line, Arena &area) {
+void    up(s_data *data, s_bresenham bres, s_lines line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 
@@ -69,7 +69,7 @@ void    up(t_data *data, t_bresenham bres, t_lines line, Arena &area) {
     area.set_flag(line.x2, line.y2, END);
 }
 
-void    down(t_data *data, t_bresenham bres, t_lines line, Arena &area) {
+void    down(s_data *data, s_bresenham bres, s_lines line, Arena &area) {
     int x1_tmp;
     int y1_tmp;
 

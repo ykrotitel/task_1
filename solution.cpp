@@ -7,7 +7,7 @@
 int x;
 int y;
 
-void    solution(t_data *data, Arena &area) {
+void    solution(s_data *data, Arena &area) {
     int count;
     int answer;
 

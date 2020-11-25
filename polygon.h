@@ -84,7 +84,7 @@ public:
         }
     }
 
-    void    make_polygon(t_data *data) {
+    void    make_polygon(s_data *data) {
         int count;
         int i;
 
@@ -108,5 +108,3 @@ public:
         }
     }
 };
-
-// TODO область видимости глобального экземляра класса

@@ -21,29 +21,29 @@ enum Zone {
     ANSWER = 7,
 };
 
-typedef struct s_lines
+struct s_lines
 {
     int         x1;
     int         y1;
     int         x2;
     int         y2;
-}               t_lines;
+};
 
-typedef struct s_points
+struct s_points
 {
     int         x;
     int         y;
-}               t_points;
+};
 
-typedef struct  s_max
+struct  s_max
 {
     int         min_x;
     int         max_x;
     int         min_y;
     int         max_y;
-}               t_max;
+};
 
-typedef struct  s_bresenham
+struct  s_bresenham
 {
     int         d_x;
     int         d_y;
@@ -51,15 +51,15 @@ typedef struct  s_bresenham
     int         d_err;
     int         dir_x;
     int         dir_y;
-}               t_bresenham;
+};
 
 using Polygon   = std::vector <std::vector<int> >;
-using Lines     = std::vector <t_lines>;
-using Points    = std::vector <t_points>;
+using Lines     = std::vector <s_lines>;
+using Points    = std::vector <s_points>;
 
-typedef struct s_data
+struct s_data
 {
-    t_max       limits;
+    s_max       limits;
     Lines       line;
     Points      point;
     Polygon     polygon;
@@ -67,38 +67,38 @@ typedef struct s_data
     int         points_number;
     int         size_x;
     int         size_y;
-}               t_data;
+};
 
 class Arena;
 
 /*
  * parse.cpp
  */
-void    all_parse(t_data *data);
+void    all_parse(s_data *data);
 
 /*
  * bresenham.cpp
  */
-void    bresenham_algo(t_data *data, Arena &area);
+void    bresenham_algo(s_data *data, Arena &area);
 
 /*
  * lines.cpp
  */
-void    left(t_data *data, t_bresenham bres, t_lines line, Arena &area);
-void    right(t_data *data, t_bresenham bres, t_lines  line, Arena &area);
-void    up(t_data *data, t_bresenham bres, t_lines line, Arena &area);
-void    down(t_data *data, t_bresenham bres, t_lines line, Arena &area);
+void    left(s_data *data, s_bresenham bres, s_lines line, Arena &area);
+void    right(s_data *data, s_bresenham bres, s_lines  line, Arena &area);
+void    up(s_data *data, s_bresenham bres, s_lines line, Arena &area);
+void    down(s_data *data, s_bresenham bres, s_lines line, Arena &area);
 
 /*
  * solution.cpp
  */
-void    solution(t_data *data, Arena &area);
+void    solution(s_data *data, Arena &area);
 
 /*
  * init.cpp
  */
-void     local_init_down(t_data *data, t_bresenham *bres, t_lines line);
-void    local_init_up(t_data *data, t_bresenham *bres, t_lines line);
-void     local_init_right(t_data *data, t_bresenham *bres, t_lines  line);
-void    local_init_left(t_data *data, t_bresenham *bres, t_lines line);
-void    init_params(t_data *data, t_bresenham *bres, t_lines line);
+void     local_init_down(s_data *data, s_bresenham *bres, s_lines line);
+void    local_init_up(s_data *data, s_bresenham *bres, s_lines line);
+void     local_init_right(s_data *data, s_bresenham *bres, s_lines  line);
+void    local_init_left(s_data *data, s_bresenham *bres, s_lines line);
+void    init_params(s_data *data, s_bresenham *bres, s_lines line);

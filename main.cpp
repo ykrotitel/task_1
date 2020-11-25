@@ -2,7 +2,7 @@
 #include "polygon.h"
 
 int main() {
-    t_data data;
+    s_data data;
     Arena area;
 
     all_parse(&data);
